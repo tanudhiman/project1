@@ -1,0 +1,36 @@
+<div> <center>  <h2 class="head"> smartData Enterprises</h2></center>
+
+<%if user_signed_in?%>
+<%if flash[:success]%>
+<div class='alert alert-success'>
+<%=flash[:success]%>
+</div>
+<%elsif flash[:error]%>
+<div class='alert alert-danger'>
+<%=flash[:error]%>
+</div>
+<%end%>
+
+<center><h2>Welcome
+<%=current_user.name%>
+</h2> <br> </center>
+
+<%if @role =='Project Manager'%>
+
+<%= render 'layouts/nav' %>
+
+<%else%>
+<div style='float:left; margin-left:450px'>
+<%=link_to 'Assigned Projects', assigns_path, method: :get%>
+</div>
+<div style='float:left; margin-left:150px'>
+
+<%=link_to 'logout', destroy_user_session_path, method: :delete%>
+</div>
+
+<%end%>
+<div><center>
+  <img src="project-management.jpg"  style="width:1000px;height:500px;">  </center>
+ </div>
+
+<%end%>

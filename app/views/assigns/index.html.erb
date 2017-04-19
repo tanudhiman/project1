@@ -1,0 +1,133 @@
+<%if flash[:success]%>
+  <div class='alert alert-success'>
+  <%=flash[:success]%>
+</div>
+<%elsif flash[:error]%>
+  <div class='alert alert-danger'>
+  <%=flash[:error]%>
+  </div>
+<%end%>
+<div> <center>  <h2 class="head"> smartData Enterprises</h2></center>
+</div>
+
+<%if current_user.role == "Project Manager"%>
+
+<%= render 'layouts/nav' %>
+
+<form method='post' action ='<% assigns_path%>' style="background-color:#FFC0CB ">
+
+   <center>
+      <div>
+         <h3>Select Project <h3>
+
+         <%= collection_select(:assign, :project_id, @project, :id, :name, {multiple: :false})%>
+      </div>
+      <br>
+      <div>
+
+         <%= label_tag "select any two Tester" %><br>
+         <%= collection_select(:assign, :user_id, @tester, :id, :name,  {include_blank: false, include_hidden: false}, {multiple: :true})%>
+      </div>
+      <br>
+      <div>
+      <%= label_tag "select any two Developer" %><br>
+         <%= collection_select(:assign, :user_id, @developer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true})%>
+      </div>
+      <br>
+      <div>
+      <%= label_tag "select any two Designer" %><br>
+         <%= collection_select(:assign, :user_id, @designer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true})%>
+      </div>
+      <input type='submit' value='submit'>
+      </center>
+</form>
+
+
+<div>
+
+<center>  <%= link_to 'back', root_path, method: :get %></li></ul></center>
+
+</div>
+<%else%>
+<%if @assign1.present? %>
+
+<div class="container">
+
+  <p  class="btn btn-info btn-lg" style="float: right">
+    <%=link_to 'back', root_path, method: :get %>
+      <span class="glyphicon glyphicon-arrow-left"></span>
+
+  </p>
+
+</div>
+</body>
+</html>
+
+<div class="container">
+
+  <p class="btn btn-info btn-lg" style="float: right">
+  <%=link_to 'Logout', destroy_user_session_path, method: :delete%>
+      <span class="glyphicon glyphicon-off"></span>
+
+  </p>
+
+</div>
+<center>
+  <center><h2>These are assigned projects</h2> <br> </center>
+
+   <style>
+      table ,th,td
+      {border: 4px solid grey; padding:5px 5px 5px 5px; width:50%}
+   </style>
+
+   <table>
+      <thead>
+         <tr>
+            <th height="50" width="100">Name</th>
+            <th height="50" width="100">Requirement</th>
+            <th height="50" width="100"> Domain</th>
+            <th height="50" width="100"> Image</th>
+            <th height="50" width="100"> status </th>
+         </tr>
+      </thead>
+
+      <tbody>
+
+        <form method='post' , action= "/status">
+
+         <% @assign1.each do |t| %>
+         <tr>
+            <td><%=Project.find(t.project_id).name%></td>
+            <td><%=Project.find(t.project_id).requirements.html_safe%></td>
+            <td><%=Project.find(t.project_id).domain%></td>
+            <td><%= image_tag (Project.find( t.project_id).avatar.url(:thumb))%></td>
+                    <!--image_tag project.avatar.url(:thumb) -->
+
+
+            <td><%= label_tag @status, 'Completed' %>
+
+            <%= radio_button_tag :status,"Done"  %>
+            <%= label_tag @status, 'Pending' %>
+            <%=radio_button_tag :status, "Pending" %>
+
+         </tr>
+     <%end%>
+
+     <%= submit_tag  "submit", :onclick => "alert('Status is Submitted')"%></td>
+     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+
+      </tbody>
+   </table>
+   <div>
+   <%= paginate @assign1 %></div>
+</center>
+<%else%>
+<center>
+<MARQUEE >
+  <h1>No projects are assigned yet<h1>
+</MARQUEE></center>
+<div><center>
+  <img src="project-management.jpg"  style="width:1000px;height:500px;">  </center>
+ </div>
+<%end%>
+<%end%>

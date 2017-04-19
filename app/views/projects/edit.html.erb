@@ -1,0 +1,44 @@
+<%= tinymce %>
+<%=render 'errors' ,project: @project %>
+<div> <center>  <h2 class="head"> smartData Enterprises</h2></center>
+</div>
+
+<%= render 'layouts/nav' %>
+
+ <center>
+  <p></p><p></p>
+<h1>Edit Project Details</h1>
+<p></p><p></p>
+<%= form_for @project, :url=>{:action=>'update'} do |f| %>
+<div>
+  <%= f.label :Name%>
+</div>
+<div>
+  <%= f.text_field :name %>
+</div>
+<div>
+<%= f.label :Requirements%>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
+<div>
+<%= f.text_area :requirements, :class => "tinymce"%>
+</div>
+<div>
+<%= f.label :Domain%>
+</div>
+<div>
+<%= f.text_field :domain%>
+</div>
+<div>
+ <%= f.label :avatar %>
+ <%= f.file_field :avatar %>
+</div>
+
+
+
+<div>
+
+<%= f.submit 'Update' %>
+</div>
+<%end%>
+</center>

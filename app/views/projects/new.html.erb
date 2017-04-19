@@ -1,0 +1,40 @@
+<%= tinymce %>
+<%if current_user.role == "Project Manager"%>
+
+<%=render 'errors' ,project: @project%>
+<div> <center>  <h2 class="head"> smartData Enterprises</h2></center></div>
+<%= render 'layouts/nav' %>
+this is for adding new project by project manager
+<center>
+<%= form_for @project ,:html=> {} do |t|%>
+<div>
+ <%= t.label :Name %>
+ <%= t.text_field :name %>
+</div>
+<div>
+ <%= t.label :Requirements %>
+ <%= t.text_area :requirements ,:class => "tinymce"%>
+</div>
+<div>
+ <%= t.label :Domain %>
+ <%= t.text_field :domain %>
+</div>
+<div>
+ <%= t.label :avatar %>
+ <%= t.file_field :avatar %>
+</div>
+<!--<div>
+ <%= t.label :document %>
+ <%= t.file_field :document %>
+</div>-->
+
+
+<%= t.hidden_field :user_id, :value => current_user.id%>
+<div>
+  <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" }%>
+</div>
+<%end%>
+</center>
+<%else%>
+no access 
+<%end%>
