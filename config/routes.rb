@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :admin_users, ActiveAdmin::Devise.config
   #ActiveAdmin.routes(self)
+
   devise_for :users ,:controllers => { :registrations => "users" , :omniauth_callbacks => "callbacks" }
+
   root 'welcome#index'
   get'view1', to: 'projects#view1'
   post'status', to: 'assigns#status'

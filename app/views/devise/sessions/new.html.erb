@@ -1,13 +1,18 @@
-<div class="panel panel-default devise-bs">
-  <div class="panel-heading">
-  <div> <center>  <h2 class="head"> smartData Enterprises</h2></center>
+
+<%= bootstrap_devise_error_messages! %>
+
+  <%= video_tag "Productive-Morning.mp4", controls: false, autoplay: true, muted:
+       true, loop: true, class: "video-container", type:"video/mp4" %>
+
+<div class="overlay1">
+  <div >
+ <center>  <h2 class="head"> smartData Enterprises</h2></center>
     <center>  <h4 class="head2">ONLINE PROJECT MANAGEMENT SYSTEM</h4></center></div>
-    <h4><%= t('.sign_in', default: 'Sign in') %></h4>
-  </div>
-  <div class="panel-body">
+
+ <div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
 
-      <div class="form-group">
+      <div >
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true,autocomplete:"off", class: 'form-control' %>
       </div>
@@ -25,5 +30,8 @@
       <%= f.submit  t('.sign_in', default: 'Sign in'), class: 'btn btn-primary' %>
     <% end %>
   </div>
+
 </div>
-<%= render 'devise/shared/links' %>
+<p class="a" > <%= render 'devise/shared/links' %></p>
+
+</div>
