@@ -15,6 +15,7 @@ class AssignsController < ApplicationController
 
      params[:assign][:user_id].each do |uid|
      @dd = Assign.create(user_id: uid, project_id: params[:assign][:project_id])
+     
 
     end
     end

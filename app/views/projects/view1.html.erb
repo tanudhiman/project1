@@ -6,73 +6,55 @@
    <%= render 'layouts/nav' %>
 <%if @project.empty?%>
 <h1>
-   <center>NO PROJECTS ARE THERE</center>
+   <center>NO TEAM IS ASSIGNED YET</center>
 </h1>
 <%else%>
-
+<div >
 <center>
+   <% @project.each do|project|%>
 
+          <div><%=label_tag 'Project Name:'%>
+                <%= label_tag project.name %></div>
+      <!--<div>     <%=label_tag "Requirement"%>
+            <%=project.requirements.html_safe %></div>
 
-   <style>
-      table ,th,td
-      {border: 4px solid grey; padding:5px 5px 5px 5px; width:50%}
-   </style>
-   <table>
-      <thead>
-         <tr>
-            <th height="50">Name</th>
-            <th height="50">Requirement</th>
-            <th height="50"> Domain</th>
-            <th height="50"> Avatar</th>
+        <div>    <%=label_tag "Domain"%>
+            <%=project.domain%></div>
+      <div>    <%=label_tag "Avatar"%>
+          <%= image_tag project.avatar.url(:thumb)%></div>-->
             <!--<th height="50">Document</th>-->
-            <th height="50">Team</th>
-            <th height="50"> Final status</th>
 
-         </tr>
-      </thead>
-      <tbody>
-         <% @project.each do|project|%>
-         <tr>
-            <td>
-               <%=project.name %>
-            </td>
-            <td>
-               <%=project.requirements.html_safe %>
-            </td>
-            <td>
-               <%=project.domain%>
-            </td><td>
-          <%= image_tag project.avatar.url(:thumb)%>
-          </td>
-      <!--<td><%=image_tag project.document.url(:thumb) %>  </td>-->
+<div>
+<%if Assign.where(project_id:project).present?%>
 
-          <td class="td_size">
-           <% Assign.where(project_id:project).each do |t| %>
-           <%=User.find(t.user_id).role%>:
-           <%=User.find(t.user_id).name%><br>
-          Status:
-          <%Assign.connection.clear_query_cache%><%=t.status%><br>
-               <%end%>
-          </td>
-          <td>    <form method='post' , action= "/final_status">
+               <%=label_tag "Team:"%><br>
+
+              <% Assign.where(project_id:project).each do |t| %>
+              <%=label_tag User.find(t.user_id).role%>:
+              <%=User.find(t.user_id).name%><br>
+             Status:
+             <%Assign.connection.clear_query_cache%><%=label_tag t.status%><br>
+                  <%end%>
+
+<!--<td><%=image_tag project.document.url(:thumb) %>  </td>-->
+<div>
+      <%=label_tag "Final Status"%>
+
+              <form method='post' , action= "/final_status">
               <%= label_tag @final_status, 'Completed' %>
-              <%= radio_button_tag :status,"Done"  %>
+              <%= radio_button_tag :final_status,"Done"  %>
               <%= label_tag @final_status, 'Incompleted' %>
-              <%=radio_button_tag :status, "Pending" %>
-           <%= submit_tag  "submit" %>
-         </td>
-            <td>
-              <%= button_to  edit_project_path(project) do %>
-               <i class="glyphicon glyphicon-pencil"></i>
-              <% end %>
+              <%=radio_button_tag :final_status, "Pending" %><br>
+           <%= submit_tag  "submit" ,data: { disable_with: "Please wait..."} %>
+</div>
+<%else%>
+<%=label_tag 'No Team is assigned by you'%>
+<%end%>
+</div>
 
-               <%= button_to project, method: :delete  , :onclick => "alert('are you sure?')" do %>
-            <i class="glyphicon glyphicon-trash"></i>
-           <% end %>
-            </td>
             <%end%>
-      </tbody>
-   </table>
+
 <%= paginate @project %>
 </center>
+</div>
 <%end%>

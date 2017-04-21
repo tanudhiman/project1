@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
  #@project.paginate(:page => params[:page], :per_page => 1)
   end
   def create
-
+    authorize!
     @project= Project.new(create_params)
 
     if @project.save
@@ -25,10 +25,7 @@ class ProjectsController < ApplicationController
 
    #@project=@project.paginate(:page => params[:page], :per_page => 1)
   end
-  def edit
-    @project= Project.find(params[:id])
 
-  end
   def update
     @project=Project.find(params[:id])
     if @project.update_attributes(update_params)
@@ -37,11 +34,21 @@ class ProjectsController < ApplicationController
     end
   end
   def show
-
+    authorize! :manage, :all
+ @show= Project.all
   end
+def show1
+  authorize! :manage, :all
+     @project = Project.where(user_id:current_user.id).page(params[:page]).per(1)
+end
+def edit
+  @project= Project.find(params[:id])
+  authorize! :manage, @project
 
+end
 
   def destroy
+    authorize! :manage, :all
   @project = Project.find(params[:id])
    if @project.destroy
     flash[:success]="Project got deleted successfully"
@@ -49,10 +56,11 @@ class ProjectsController < ApplicationController
    end
  end
  def final_status
-
+authorize! :manage, :all
    @final_status=params[:final_status]
    @pro=Project.find_by_user_id(current_user.id)
    @pro.update_attributes(:final_status => @final_status)
+   redirect_to view1_path
 
   end
   def image_download
