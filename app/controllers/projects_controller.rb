@@ -1,67 +1,75 @@
+#
 class ProjectsController < ApplicationController
+  def index
+    @project = Project.all
+  end
 
-def index
-@project = Project.all
-end
-def new
-  @project = Project.new
-end
-def create
-@project = Project.new(create_params)
-if @project.save
-flash[:success] = "Project got created successfully"
-redirect_to new_project_path
-else
-    render 'new'
-end
-end
-def view1
-  @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
-end
+  def new
+    @project = Project.new
+  end
 
-def update
-  @project = Project.find(params[:id])
-if @project.update_attributes(update_params)
-redirect_to view1_path
-flash[:success] = "Project got updated successfully"
-end
-end
-def show
-authorize! :manage, :all
-@show = Project.all
-end
-def show1
-authorize! :manage, :all
-@project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
-end
-def edit
-  @project = Project.find(params[:id])
-authorize! :manage, @project
+  def create
+    @project = Project.new(create_params)
+     if @project.save
+       flash[:success] = 'Project got created successfully'
+       redirect_to new_project_path
+     else
+       render 'new'
+     end
+  end
 
-end
+  def view1
+    @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
+  end
 
-def destroy
-authorize! :manage, :all
-@project = Project.find(params[:id])
-if @project.destroy
-flash[:success] = "Project got deleted successfully"
-redirect_to view1_path
-end
-end
-def final_status
-authorize! :manage, :all
-@final_status = params[:final_status]
-@pro = Project.find_by_user_id(current_user.id)
-@pro.update_attributes(:final_status => @final_status)
-redirect_to view1_path
+   def update
+     @project = Project.find(params[:id])
+     if @project.update_attributes(update_params)
+       redirect_to view1_path
+       flash[:success] = 'Project got updated successfully'
+     end
+   end
 
-end
-end
-private
-def create_params
+   def show
+     authorize! :manage, :all
+     @show = Project.all
+   end
 
-params.require(:project).permit(:name, :requirements, :domain, :user_id, :avatar, :document)
-end
-def update_params
-params.require(:project).permit(:name, :requirements, :domain, :avatar, :document)
+   def show1
+       authorize! :manage, :all
+       @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
+   end
+
+   def edit
+     @project = Project.find(params[:id])
+     authorize! :manage, @project
+    end
+
+    def destroy
+      authorize! :manage, :all
+      @project = Project.find(params[:id])
+      if @project.destroy
+        flash[:success] = 'Project got deleted successfully'
+        redirect_to view1_path
+      end
+    end
+
+    def final_status
+      authorize! :manage, :all
+       @final_status = params[:final_status]
+       @pro = Project.find_by_user_id(current_user.id)
+       @pro.update_attributes(:final_status => @final_status)
+       redirect_to view1_path
+    end
+
+    private
+
+    def create_params
+      params.require(:project).permit(:name, :requirements, :domain, :user_id,
+       :avatar, :document)
+    end
+    def update_params
+      params.require(:project).permit(:name, :requirements, :domain,
+       :avatar, :document)
+    end
 end

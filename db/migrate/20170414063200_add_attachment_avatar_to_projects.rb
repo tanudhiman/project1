@@ -1,3 +1,4 @@
+#
 class AddAttachmentAvatarToProjects < ActiveRecord::Migration
   def self.up
     change_table :projects do |t|
