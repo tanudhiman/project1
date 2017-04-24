@@ -23,12 +23,6 @@ this is for adding new project by project manager
  <%= t.label :avatar %>
  <%= t.file_field :avatar %>
 </div>
-<!--<div>
- <%= t.label :document %>
- <%= t.file_field :document %>
-</div>-->
-
-
 <%= t.hidden_field :user_id, :value => current_user.id%>
 <div>
   <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" }%>

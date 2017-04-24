@@ -1,60 +1,43 @@
 <%= tinymce %>
 <div>
-<center>
-   <h2 class="head"> smartData Enterprises</h2>
+   <center>
+      <h2 class="head"> smartData Enterprises</h2>
    </center>
    <%= render 'layouts/nav' %>
-<%if @project.empty?%>
-<h1>
-   <center>NO TEAM IS ASSIGNED YET</center>
-</h1>
-<%else%>
-<div >
-<center>
-   <% @project.each do|project|%>
-
-          <div><%=label_tag 'Project Name:'%>
-                <%= label_tag project.name %></div>
-      <!--<div>     <%=label_tag "Requirement"%>
-            <%=project.requirements.html_safe %></div>
-
-        <div>    <%=label_tag "Domain"%>
-            <%=project.domain%></div>
-      <div>    <%=label_tag "Avatar"%>
-          <%= image_tag project.avatar.url(:thumb)%></div>-->
-            <!--<th height="50">Document</th>-->
-
-<div>
-<%if Assign.where(project_id:project).present?%>
-
-               <%=label_tag "Team:"%><br>
-
-              <% Assign.where(project_id:project).each do |t| %>
-              <%=label_tag User.find(t.user_id).role%>:
-              <%=User.find(t.user_id).name%><br>
-             Status:
-             <%Assign.connection.clear_query_cache%><%=label_tag t.status%><br>
-                  <%end%>
-
-<!--<td><%=image_tag project.document.url(:thumb) %>  </td>-->
-<div>
-      <%=label_tag "Final Status"%>
-
-              <form method='post' , action= "/final_status">
-              <%= label_tag @final_status, 'Completed' %>
-              <%= radio_button_tag :final_status,"Done"  %>
-              <%= label_tag @final_status, 'Incompleted' %>
-              <%=radio_button_tag :final_status, "Pending" %><br>
-           <%= submit_tag  "submit" ,data: { disable_with: "Please wait..."} %>
-</div>
-<%else%>
-<%=label_tag 'No Team is assigned by you'%>
-<%end%>
-</div>
-
-            <%end%>
-
-<%= paginate @project %>
-</center>
+   <%if @project.empty?%>
+   <h1>
+      <center>NO TEAM IS ASSIGNED YET</center>
+   </h1>
+   <%else%>
+   <div >
+      <center>
+         <% @project.each do|project|%>
+         <div><%=label_tag 'Project Name:'%>
+            <%= label_tag project.name %>
+         </div>
+         <%if Assign.where(project_id:project).present?%>
+         <%=label_tag "Team:"%><br>
+         <% Assign.where(project_id:project).each do |t| %>
+         <%=label_tag User.find(t.user_id).role%>:
+         <%=User.find(t.user_id).name%><br>
+         Status:
+         <%Assign.connection.clear_query_cache%><%=label_tag t.status%><br>
+         <%end%>
+         <div>
+            <%=label_tag "Final Status"%>
+            <form method='post' , action= "/final_status">
+            <%= label_tag @final_status, 'Completed' %>
+            <%= radio_button_tag :final_status,"Done"  %>
+            <%= label_tag @final_status, 'Incompleted' %>
+            <%=radio_button_tag :final_status, "Pending" %><br>
+            <%= submit_tag  "submit" ,data: { disable_with: "Please wait..."} %>
+         </div>
+         <%else%>
+         <%=label_tag 'No Team is assigned by you'%>
+         <%end%>
+   </div>
+   <%end%>
+   <%= paginate @project %>
+   </center>
 </div>
 <%end%>

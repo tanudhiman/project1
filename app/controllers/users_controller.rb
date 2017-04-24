@@ -28,12 +28,10 @@ class UsersController < Devise::RegistrationsController
   end
 
   def user_home
-    # it will go to member home
   end
 
   private
   private
-     # Use callbacks to share common setup or constraints between actions.
 
 
   def pram_parms

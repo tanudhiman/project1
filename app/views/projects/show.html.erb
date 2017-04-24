@@ -3,16 +3,12 @@
 <center>
    <h2 class="head"> smartData Enterprises</h2>
    </center>
-  
-<%if @show.empty?%>
+  <%if @show.empty?%>
 <h1>
    <center>NO PROJECTS ARE THERE</center>
 </h1>
 <%else%>
-
 <center>
-
-
    <style>
       table ,th,td
       {border: 4px solid grey; padding:5px 5px 5px 5px; width:50%}
@@ -24,8 +20,6 @@
             <th height="50">Requirement</th>
             <th height="50"> Domain</th>
             <th height="50"> Avatar</th>
-            <!--<th height="50">Document</th>-->
-
          </tr>
       </thead>
       <tbody>
@@ -42,14 +36,7 @@
             </td><td>
           <%= image_tag project.avatar.url(:thumb)%>
           </td>
-      <!--<td><%=image_tag project.document.url(:thumb) %>  </td>-->
-
-
-
-
-
-
-            <%end%>
+        <%end%>
       </tbody>
    </table>
 </center>

@@ -102,7 +102,6 @@
             <td><%=Project.find(t.project_id).requirements.html_safe%></td>
             <td><%=Project.find(t.project_id).domain%></td>
             <td><%= image_tag (Project.find( t.project_id).avatar.url(:thumb))%></td>
-                    <!--image_tag project.avatar.url(:thumb) -->
 
 
             <td><%= label_tag @status, 'Completed' %>
@@ -139,44 +138,23 @@
   $( "#target" ).submit(function( event ) {
     if ($('.dp_first option:selected').length != 2){
       event.preventDefault();
-      alert('Not submitting ...');
+      alert('Please choose exactly 2 Tester ...');
     }
   });
-  // $('.dp_first, .dp_second').change(function(){
-  //   $(this)
-  //   selected_option = $('.dp_second option:selected').length;
-  //   if (selected_option != 2 ){
-  //     alert('more options not allowed ');
-  //   }
-  // })
 </script>
 <script type='text/javascript'>
   $( "#target" ).submit(function( event ) {
     if ($('.dp_second option:selected').length != 2){
       event.preventDefault();
-      alert('Not submitting ...');
+      alert('Please choose exactly 2 Devloper ...');
     }
   });
-  // $('.dp_first, .dp_second').change(function(){
-  //   $(this)
-  //   selected_option = $('.dp_second option:selected').length;
-  //   if (selected_option != 2 ){
-  //     alert('more options not allowed ');
-  //   }
-  // })
 </script>
 <script type='text/javascript'>
   $( "#target" ).submit(function( event ) {
     if ($('.dp_third option:selected').length != 2){
       event.preventDefault();
-      alert('Not submitting ...');
+      alert('Please choose exactly 2 Designer ...');
     }
   });
-  // $('.dp_first, .dp_second').change(function(){
-  //   $(this)
-  //   selected_option = $('.dp_second option:selected').length;
-  //   if (selected_option != 2 ){
-  //     alert('more options not allowed ');
-  //   }
-  // })
 </script>
