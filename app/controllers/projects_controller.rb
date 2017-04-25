@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @user = User.find(current_user.id)
+    authorize! :manage, @user
     @project = Project.new(create_params)
      if @project.save
        flash[:success] = 'Project got created successfully'
@@ -19,6 +21,8 @@ class ProjectsController < ApplicationController
   end
 
   def view1
+    @user = User.find(current_user.id)
+    authorize! :manage, @user
     @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
   end
 
@@ -31,22 +35,27 @@ class ProjectsController < ApplicationController
    end
 
    def show
-     authorize! :manage, :all
+     @user = User.find(current_user.id)
+     authorize! :manage, @user
      @show = Project.all
    end
 
    def show1
-       authorize! :manage, :all
+     @user = User.find(current_user.id)
+     authorize! :manage, @user
        @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
    end
 
    def edit
+     @user = User.find(current_user.id)
+     authorize! :manage, @user
      @project = Project.find(params[:id])
      authorize! :manage, @project
     end
 
     def destroy
-      authorize! :manage, :all
+      @user = User.find(current_user.id)
+      authorize! :manage, @user
       @project = Project.find(params[:id])
       if @project.destroy
         flash[:success] = 'Project got deleted successfully'
@@ -55,7 +64,8 @@ class ProjectsController < ApplicationController
     end
 
     def final_status
-      authorize! :manage, :all
+      @user = User.find(current_user.id)
+      authorize! :manage, @user
        @final_status = params[:final_status]
        @pro = Project.find_by_user_id(current_user.id)
        @pro.update_attributes(:final_status => @final_status)
