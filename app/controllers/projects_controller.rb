@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
      @user = User.find(current_user.id)
      authorize! :manage, @user
      @project = Project.find(params[:id])
-     authorize! :manage, @project
+    
     end
 
     def destroy
