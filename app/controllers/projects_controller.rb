@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
    def show
      @user = User.find(current_user.id)
      authorize! :manage, @user
-     @show = Project.all
+     @show = Project.all.page(params[:page]).per(3)
    end
 
    def show1
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
      @user = User.find(current_user.id)
      authorize! :manage, @user
      @project = Project.find(params[:id])
-    
+
     end
 
     def destroy

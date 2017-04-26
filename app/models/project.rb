@@ -7,7 +7,7 @@ class Project < ApplicationRecord
     :thumb => '200x200#',
     :small  => '400x400>',
     :medium => '800x800'
-  }, :default_url => 'default_image.png'
+  }, :default_url => 'public/default_image.png'
 
   validates_attachment :avatar, content_type:
   { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] }
