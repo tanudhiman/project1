@@ -1,8 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) do |repo_name|
-  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
-  'https://github.com/#{repo_name}.git'
-end
+
 gem 'activemodel-serializers-xml', git: 'https://github.com/rails/activemodel-serializers-xml'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'devise-bootstrap-views'
@@ -22,12 +19,13 @@ gem 'omniauth-github'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'puma', '~> 3.0'
 gem 'pundit'
-
+gem 'pg'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
 gem 'rubocop', '~> 0.48.1', require: false
 gem 'sass-rails', '~> 5.0'
-gem 'sqlite3'
+#gem 'sqlite3',:group=> :development
+
 gem 'tinymce-rails'
 gem 'turbolinks', '~> 5'
 gem 'twitter-bootstrap-rails'
@@ -39,6 +37,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
+  #gem 'sqlite3'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
