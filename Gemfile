@@ -37,7 +37,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
-  #gem 'sqlite3'
+  gem 'sqlite3'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
