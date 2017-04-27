@@ -23,7 +23,7 @@ Rails.application.configure do
     :authentication => "plain",
     :enable_starttls_auto => true
   }
-
+  config.public_file_server.enabled= true
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
