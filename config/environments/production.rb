@@ -23,6 +23,19 @@ Rails.application.configure do
     :authentication => "plain",
     :enable_starttls_auto => true
   }
+  config.paperclip_defaults = {
+  storage: :s3,
+  s3_credentials: {
+    bucket: ENV.fetch('S3_BUCKET_NAME'),
+    access_key_id: ENV.fetch('AWS_ACCESS_KEY_ID'),
+    secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
+    s3_region: ENV.fetch('AWS_REGION'),
+  }
+  AWS::S3::Base.establish_connection!(
+   :access_key_id   => ENV['S3_KEY'],
+   :secret_access_key => ENV['S3_SECRET']
+  )
+}
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
