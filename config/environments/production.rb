@@ -6,7 +6,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   config.assets.js_compressor = :uglifier
   config.assets.paths << "#{Rails.root}/app/assets/video"
-  config.assets.compile = false
+  config.assets.compile = true
   config.log_level = :debug
   config.log_tags = [:request_id]
   config.action_mailer.perform_caching = false
@@ -23,20 +23,7 @@ Rails.application.configure do
     :authentication => "plain",
     :enable_starttls_auto => true
   }
-  config.paperclip_defaults = {
-  storage: :s3,
-  s3_credentials: {
-    bucket: ENV.fetch('tanudhiman'),
-    access_key_id: ENV.fetch('9501526933'),
-    secret_access_key: ENV.fetch('950152693395921'),
-    s3_region: ENV.fetch('panchkula'),
-  }
 
-}
-AWS::S3::Base.establish_connection!(
- :access_key_id   => ENV['9501526933'],
- :secret_access_key => ENV['950152693395921']
-)
   if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
