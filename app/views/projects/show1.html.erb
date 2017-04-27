@@ -1,7 +1,9 @@
+
+
 <%= tinymce %>
 <div>
 <center>
-   <%=render 'layouts/head'%>
+   <h2 class="head"> smartData Enterprises</h2>
 </center>
 <%= render 'layouts/nav' %>
 <%if @project.empty?%>
@@ -10,22 +12,30 @@
 </h1>
 <%else%>
 <center>
-   </style>
    <% @project.each do|project|%>
    <fieldset>
       <div>
-         <div class="h">
-            <%= label_tag "Name :"%>
-            <%= label_tag project.name %>
+         <div style="font-size:20%">
+            <center>
+               <input type="text" value = "<%= project.name %>" readonly class="form-control" />
+            </center>
          </div>
-         <div class= "h">
-            <%= label_tag "Requirements:"%>
-            <%= project.requirements.html_safe %>
+         <br>
+         <fieldset>
+            <div class= "h">
+               <%= label_tag "Requirements:"%>
+               <%= project.requirements.html_safe %>
+            </div>
+         </fieldset>
+         <div class="form-group">
+            <div class="control-label col-sm-2">
+               <strong>Domain :</strong>
+            </div>
+            <div class="col-sm-3">
+               <input type="text" value = "<%= project.domain %>" readonly class="form-control"/>
+            </div>
          </div>
-         <div class= "h">
-            <%= label_tag "Domain"%>
-            <%=project.domain%>
-         </div>
+         <br>
          <div class= "img">
             <img id="myImg" src= "<%=project.avatar.url(:thumb)%>" alt="Trolltunga, Norway" width="300" height="200">
             <div id="myModal" class="modal">
@@ -34,9 +44,13 @@
                <div id="caption"></div>
             </div>
          </div>
-         <div class= "h">
-            <%= label_tag "Final Status"%>
-            <%=project.final_status %>
+         <div class="form-group">
+            <div class="control-label col-sm-2">
+               <strong>Final Status :</strong>
+            </div>
+            <div class="col-sm-3">
+               <input type="text" value = "<%= project.final_status %>" readonly class="form-control"/>
+            </div>
          </div>
       </div>
    </fieldset>
@@ -50,7 +64,6 @@
    <%= paginate @project %>
 </center>
 <%end%>
-<%=render 'layouts/footor'%>
 <script>
    var modal = document.getElementById('myModal');
    var img = document.getElementById('myImg');

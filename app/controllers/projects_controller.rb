@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
    def update
      @project = Project.find(params[:id])
      if @project.update_attributes(update_params)
-       redirect_to view1_path
+       redirect_to show1_path
        flash[:success] = 'Project got updated successfully'
      end
    end
