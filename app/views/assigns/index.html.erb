@@ -7,9 +7,7 @@
   <%=flash[:error]%>
   </div>
 <%end%>
-<div> <center>  <h2 class="head"> smartData Enterprises</h2></center>
-</div>
-
+<%=render 'layouts/head'%>
 <%if current_user.role == "Project Manager"%>
 
 <%= render 'layouts/nav' %>
@@ -134,6 +132,7 @@
  </div>
 <%end%>
 <%end%>
+<%=render 'layouts/footor'%>
 <script type='text/javascript'>
   $( "#target" ).submit(function( event ) {
     if ($('.dp_first option:selected').length != 2){

@@ -1,7 +1,7 @@
 <%= tinymce %>
 <div>
 <center>
-   <h2 class="head"> smartData Enterprises</h2>
+   <%=render 'layouts/head'%>
 </center>
 <%= render 'layouts/nav' %>
 <%if @project.empty?%>
@@ -50,6 +50,7 @@
    <%= paginate @project %>
 </center>
 <%end%>
+<%=render 'layouts/footor'%>
 <script>
    var modal = document.getElementById('myModal');
    var img = document.getElementById('myImg');

@@ -2,7 +2,7 @@
 <%if current_user.role == "Project Manager"%>
 
 <%=render 'errors' ,project: @project%>
-<div> <center>  <h2 class="head"> smartData Enterprises</h2></center></div>
+<div> <center>  <%=render 'layouts/head'%></center></div>
 <%= render 'layouts/nav' %>
 this is for adding new project by project manager
 <center>
@@ -11,9 +11,9 @@ this is for adding new project by project manager
  <%= t.label :Name %>
  <%= t.text_field :name %>
 </div>
-<div>
+<div id = 'tinymcediv'>
  <%= t.label :Requirements %>
- <%= t.text_area :requirements ,:class => "tinymce"%>
+ <%= t.text_area :requirements ,:class => "tinymce" ,:rows => 20 ,:cols => 10%>
 </div>
 <div>
  <%= t.label :Domain %>
@@ -32,3 +32,4 @@ this is for adding new project by project manager
 <%else%>
 no access
 <%end%>
+<%=render 'layouts/footor'%>

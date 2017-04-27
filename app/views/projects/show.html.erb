@@ -1,7 +1,7 @@
 <%= tinymce %>
 <div>
 <center>
-   <h2 class="head"> smartData Enterprises</h2>
+   <%=render 'layouts/head'%>
    </center>
   <%if @show.empty?%>
 <h1>
@@ -42,3 +42,4 @@
 </center>
 <%= paginate @project %>
 <%end%>
+<%=render 'layouts/footor'%>

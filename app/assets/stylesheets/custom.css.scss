@@ -122,6 +122,19 @@ font-weight:100;
   left: 65%;
 
 }
+.overlay2 {
+font-weight:100;
+  padding: 2rem;
+  width: 33%;
+  height: 33%;
+  display: block;
+  color: black;
+  margin:2rem;
+  position: absolute;
+  top:40%;
+  left: -3%;
+
+}
 
 .a{
   top: 90%;
@@ -219,6 +232,10 @@ width:96%;
 padding:1em;
 
 }
+
+#tinymcediv{
+  width: 1000px;
+}
 .img {
 
     float: right;
@@ -232,4 +249,17 @@ padding:1em;
 
     margin-right:200px;
     font-size: 150%;
+}
+.foot{
+  margin: -4px;
+  font-size: 15px;
+  font-style: italic;
+  background-color:	#dff0d8;
+}
+.nam{
+  background-color: #dff0d8;
+  font-family:verdana;
+  font-style: italic;
+  font-variant:normal;
+  color: #fffff;
 }
