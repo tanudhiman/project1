@@ -15,10 +15,15 @@
    <% @project.each do|project|%>
    <fieldset>
       <div>
-         <div style="font-size:20%">
-            <center>
-               <input type="text" value = "<%= project.name %>" readonly class="form-control" />
-            </center>
+         <div>
+           <div class="form-group">
+              <div class="control-label col-sm-2">
+                 <strong>Project Name :</strong>
+              </div>
+              <div class="col-sm-3">
+                 <input type="text" value = "<%= project.name %>" readonly class="form-control"/>
+              </div>
+           </div>
          </div>
          <br>
          <fieldset>

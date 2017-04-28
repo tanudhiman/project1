@@ -100,11 +100,15 @@
                </div>
                <div class="col-sm-3">
 
-          <%= label_tag @status, 'Completed' %>
-
-            <%= radio_button_tag :status,"Done"  %>
-            <%= label_tag @status, 'Pending' %>
-            <%=radio_button_tag :status, "Pending" %>
+            <% if status_check == "Done" %>
+              <%= status_check %>
+            <% else %>
+            <%= label_tag @status, 'Completed' %>
+              <%= radio_button_tag :status,"Done"  %>
+              <%= label_tag @status, 'Pending' %>
+              <%=radio_button_tag :status, "Pending" %>
+            <% end %>
+          </br>
 </div><br>
 </div>
 

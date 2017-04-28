@@ -64,10 +64,11 @@ class ProjectsController < ApplicationController
     end
 
     def final_status
+      byebug
       @user = User.find(current_user.id)
       authorize! :manage, @user
        @final_status = params[:final_status]
-       @pro = Project.find_by_user_id(current_user.id)
+       @pro = Project.find(params[:project_id])
        @pro.update_attributes(:final_status => @final_status)
        redirect_to view1_path
     end
