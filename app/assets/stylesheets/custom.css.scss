@@ -135,6 +135,19 @@ font-weight:100;
   left: -3%;
 
 }
+.overlay3 {
+font-weight:100;
+  padding: 2rem;
+  width: 33%;
+  height: 33%;
+  display: block;
+  color: black;
+  margin:2rem;
+  position: absolute;
+  bottom:2%;
+  left: 40%;
+
+}
 
 .a{
   top: 90%;
@@ -252,14 +265,8 @@ padding:1em;
 }
 .foot{
   margin: -4px;
-  font-size: 15px;
+  font-size: px;
   font-style: italic;
+
   background-color:	#dff0d8;
-}
-.nam{
-  background-color: #dff0d8;
-  font-family:verdana;
-  font-style: italic;
-  font-variant:normal;
-  color: #fffff;
 }

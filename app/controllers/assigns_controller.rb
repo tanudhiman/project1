@@ -6,7 +6,7 @@ class AssignsController < ApplicationController
    @tester = User.where(role: 'Tester')
    @designer = User.where(role: 'Designer')
    @developer = User.where(role: 'Developer')
-   @assign1 = Assign.where(user_id: current_user).page(params[:page]).per(2)
+   @assign1 = Assign.where(user_id: current_user).page(params[:page]).per(1)
   end
 
   def create

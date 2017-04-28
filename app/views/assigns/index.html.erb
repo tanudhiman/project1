@@ -22,12 +22,6 @@
       </div>
       <br>
       <div>
-
-         <%= label_tag "select any two Tester" %><br>
-         <%= collection_select(:assign, :user_id, @tester, :id, :name,  {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_first'})%>
-      </div>
-      <br>
-      <div>
       <%= label_tag "select any two Developer" %><br>
          <%= collection_select(:assign, :user_id, @developer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_second'})%>
       </div>
@@ -36,6 +30,13 @@
       <%= label_tag "select any two Designer" %><br>
          <%= collection_select(:assign, :user_id, @designer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_third'})%>
       </div>
+      <div>
+
+         <%= label_tag "select any two Tester" %><br>
+         <%= collection_select(:assign, :user_id, @tester, :id, :name,  {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_first'})%>
+      </div>
+
+
       <input type='submit' value='submit' data-confirm="Are you sure?">
       </center>
 </form>
@@ -49,74 +50,70 @@
 <%else%>
 <%if @assign1.present? %>
 
-<div class="container">
+      <%= button_to root_path, method: :get do %>
+      <i class="glyphicon glyphicon-arrow-left"></i>
+      <% end %>
 
-  <p  class="btn btn-info btn-lg" style="float: right">
-    <%=link_to 'back', root_path, method: :get %>
-      <span class="glyphicon glyphicon-arrow-left"></span>
 
-  </p>
-
-</div>
-</body>
-</html>
-
-<div class="container">
-
-  <p class="btn btn-info btn-lg" style="float: right">
-  <%=link_to 'Logout', destroy_user_session_path, method: :delete%>
-      <span class="glyphicon glyphicon-off"></span>
-
-  </p>
+  <%= button_to destroy_user_session_path, method: :delete  do %>
+  <i class="glyphicon glyphicon-off" style="float: left"></i>
+  <% end %>
 
 </div>
 <center>
   <center><h2>These are assigned projects</h2> <br> </center>
-
-   <style>
-      table ,th,td
-      {border: 4px solid grey; padding:5px 5px 5px 5px; width:50%}
-   </style>
-
-   <table>
-      <thead>
-         <tr>
-           <th height="50" width="100">Id</th>
-            <th height="50" width="100">Name</th>
-            <th height="50" width="100">Requirement</th>
-            <th height="50" width="100"> Domain</th>
-            <th height="50" width="100"> Image</th>
-            <th height="50" width="100"> status </th>
-         </tr>
-      </thead>
-
-      <tbody>
-
+<fieldset>
         <form method='post' , action= "/status">
 
          <% @assign1.each do |t| %>
-         <tr><td><%=Project.find(t.project_id).id%></td>
-            <td><%=Project.find(t.project_id).name%></td>
-            <td><%=Project.find(t.project_id).requirements.html_safe%></td>
-            <td><%=Project.find(t.project_id).domain%></td>
-            <td><%= image_tag (Project.find( t.project_id).avatar.url(:thumb))%></td>
+         <div class="form-group">
+            <div class="control-label col-sm-2">
+               <strong>Project Name :</strong>
+            </div>
+              <div class="col-sm-3">
+         <input type="text" value = "<%= Project.find(t.project_id).name %>" readonly class="form-control" />
+         </div><br>
+         <fieldset>
+            <div class= "h">
+               <%= label_tag "Requirements:"%>
+               <%= Project.find(t.project_id).requirements.html_safe %>
+            </div>
+         </fieldset>
+         <div class="form-group">
+            <div class="control-label col-sm-2">
+               <strong>Domain :</strong>
+            </div>
+              <div class="col-sm-3">
+         <input type="text" value = "<%= Project.find(t.project_id).domain %>" readonly class="form-control" />
+       </div><br>
+            <div class= "img">
+               <img id="myImg" src= "<%=Project.find( t.project_id).avatar.url(:thumb)%>" alt="Trolltunga, Norway" width="300" height="200">
+               <div id="myModal" class="modal">
+                  <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+                  <img class="modal-content" id="img01">
+                  <div id="caption"></div>
+               </div>
+            </div><br>
+            <div class="form-group">
+               <div class="control-label col-sm-2">
+                  <strong> Status :</strong>
+               </div>
+               <div class="col-sm-3">
 
-
-            <td><%= label_tag @status, 'Completed' %>
+          <%= label_tag @status, 'Completed' %>
 
             <%= radio_button_tag :status,"Done"  %>
             <%= label_tag @status, 'Pending' %>
             <%=radio_button_tag :status, "Pending" %>
+</div><br>
+</div>
 
-         </tr>
 
      <%end%>
 
-     <%= submit_tag  "submit", :onclick => "alert('Status is Submitted')"%></td>
-     <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
-
-      </tbody>
-   </table>
+   </fieldset>
+   <%= submit_tag  "submit", :onclick => "alert('Status is Submitted')"%>
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
    <div>
    <%= paginate @assign1 %></div>
 </center>
@@ -132,7 +129,8 @@
  </div>
 <%end%>
 <%end%>
-<%=render 'layouts/footor'%>
+<%= render 'layouts/footor'%>
+
 <script type='text/javascript'>
   $( "#target" ).submit(function( event ) {
     if ($('.dp_first option:selected').length != 2){
@@ -156,4 +154,15 @@
       alert('Please choose exactly 2 Designer ...');
     }
   });
+</script>
+<script>
+   var modal = document.getElementById('myModal');
+   var img = document.getElementById('myImg');
+   var modalImg = document.getElementById("img01");
+   var captionText = document.getElementById("caption");
+   img.onclick = function(){
+       modal.style.display = "block";
+       modalImg.src = this.src;
+       captionText.innerHTML = this.alt;
+   }
 </script>
