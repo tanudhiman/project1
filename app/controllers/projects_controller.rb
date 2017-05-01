@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
     end
 
     def final_status
-      byebug
+
       @user = User.find(current_user.id)
       authorize! :manage, @user
        @final_status = params[:final_status]
