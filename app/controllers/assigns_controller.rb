@@ -16,8 +16,9 @@ class AssignsController < ApplicationController
   end
 
   def status
+
     @status=params[:status]
-    @assign2=Assign.find_by_user_id(current_user.id)
-    @assign2.update_attributes(:status => @status)
+    @assign2= Assign.find_by('user_id = ? and project_id =?',current_user.id, params[:assign] )
+    @assign2.update_attributes(status: @status)
   end
 end

@@ -4,8 +4,8 @@
 <%=render 'errors' ,project: @project%>
 <div> <center>  <%=render 'layouts/head'%></center></div>
 <%= render 'layouts/nav' %>
-this is for adding new project by project manager
 <center>
+  <h3 style="font-style:italic"> Create a new Project </h3>
 <%= form_for @project ,:html=> {} do |t|%>
 <div>
  <%= t.label :Name %>
@@ -25,7 +25,7 @@ this is for adding new project by project manager
 </div>
 <%= t.hidden_field :user_id, :value => current_user.id%>
 <div>
-  <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" }%>
+  <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" },:class => "btn btn-primary"%>
 </div>
 <%end%>
 </center>

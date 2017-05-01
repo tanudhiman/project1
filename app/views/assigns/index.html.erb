@@ -12,41 +12,37 @@
 
 <%= render 'layouts/nav' %>
 
-<form method='post' action ='<% assigns_path%>' style="background-color:#FFC0CB " id="target">
+<form method='post' action ='<% assigns_path%>' style="width:1300px;height:400px;background-color:#dff0d8 " id="target" >
 
    <center>
-      <div>
-         <h3>Select Project <h3>
+
+         <h3>Select Project </h3>
 
          <%= collection_select(:assign, :project_id, @project, :id, :name, {multiple: :false})%>
-      </div>
+</center>
       <br>
-      <div>
+      <div class = 'row' >
+      <div class= 'col-lg-4'><center>
       <%= label_tag "select any two Developer" %><br>
          <%= collection_select(:assign, :user_id, @developer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_second'})%>
-      </div>
-      <br>
-      <div>
+    </center>  </div>
+
+      <div class='col-lg-4'><center>
       <%= label_tag "select any two Designer" %><br>
          <%= collection_select(:assign, :user_id, @designer, :id, :name, {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_third'})%>
-      </div>
-      <div>
+    </center>  </div>
+
+      <div class='col-lg-4'><center>
 
          <%= label_tag "select any two Tester" %><br>
          <%= collection_select(:assign, :user_id, @tester, :id, :name,  {include_blank: false, include_hidden: false}, {multiple: :true, class: 'dp_first'})%>
-      </div>
+    </center>  </div>
 
-
-      <input type='submit' value='submit' data-confirm="Are you sure?">
+</div> <center >
+      <input type='submit' value='submit' data-confirm="Are you sure?" class="btn btn-primary btn-lg btn-block" style="width:10%;margin-top:30px">
       </center>
+
 </form>
-
-
-<div>
-
-<center>  <%= link_to 'back', root_path, method: :get %></li></ul></center>
-
-</div>
 <%else%>
 <%if @assign1.present? %>
 
@@ -73,6 +69,7 @@
               <div class="col-sm-3">
          <input type="text" value = "<%= Project.find(t.project_id).name %>" readonly class="form-control" />
          </div><br>
+      <%=hidden_field_tag :assign, :project_id, :value => t.project_id%>
          <fieldset>
             <div class= "h">
                <%= label_tag "Requirements:"%>
@@ -100,14 +97,15 @@
                </div>
                <div class="col-sm-3">
 
-            <% if status_check == "Done" %>
-              <%= status_check %>
+            <% if t.status  == "Done" %>
+
+              <%= t.status %>
             <% else %>
             <%= label_tag @status, 'Completed' %>
               <%= radio_button_tag :status,"Done"  %>
               <%= label_tag @status, 'Pending' %>
-              <%=radio_button_tag :status, "Pending" %><br>
-              <%= submit_tag  "submit", :onclick => "alert('Status is Submitted')"%>
+              <%=radio_button_tag :status, "Pending" %><br class="btn btn-primary btn-lg btn-block">
+              <%= submit_tag  "submit", :onclick => "alert('Status is Submitted')",:class => "btn btn-primary"%>
               <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
             <% end %>
           </br>
