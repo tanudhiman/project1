@@ -1,9 +1,62 @@
-<footer class = "foot">
-  <center><p>
+<div class="container">
+	<div class="row-fluid">
+        <div class="span8">
+   <script style="width:100%; height:350; frameborder:0; scrolling:no; marginheight:0; marginwidth:0" src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+   <div style='overflow:hidden;height:440px;width:700px;'>
+     <div id='gmap_canvas' style='height:440px;width:700px;'></div>
+     <div><small><a href="http://embedgooglemaps.com">embed google maps</a></small></div>
+     <div><small><a href="https://buywebsitetrafficreviews.org/trafficwebsites/">real traffic source is your most trusted source of top quality and real web traffic</a></small></div>
+     <style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
+     <script type='text/javascript'>
+     function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(30.708393000000004,76.74473692578117),mapTypeId: google.maps.MapTypeId.ROADMAP};
+     map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+     marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(30.708393000000004,76.74473692578117)});
+     infowindow = new google.maps.InfoWindow({content:'<strong>smartData </strong><br>Phase 8, Industrial Area, Sector 73, Sahibzada Ajit Singh Nagar, Chandigarh 160071, India<br>'});
+     google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+     infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
 
-smartData | A Contract Software Development Company<br>
-Copyright © 1996-2017 smartData Enterprises</p>
- <p>Contact information: <a href="mailto:http://www.smartdatainc.com">
- www.smartdatainc.com</a>.</p>
- </center>
-</footer>
+    </div>
+
+  </div>
+  <div id="footer">
+     <div class="container">
+        <div class="row">
+            <h3 class="footertext">About Us:</h3>
+            <br>
+              <div class="col-md-4">
+                <center>
+                  <img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains">
+                  <br>
+                  <h4 class="footertext">Programmer</h4>
+                  <p class="footertext">You can thank all the crazy programming here to this guy.<br>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <div class="span4">
+              		<address>
+              			<strong>SmartData Enterprise </strong><br>
+              		  Phase 8, Industrial Area	<br>
+              			Sector 73, Sahibzada Ajit Singh Nagar<br>
+              			Chandigarh 160071<br>
+              			<abbr title="Phone">P:</abbr> 01234 567 890
+              		</address>
+                  <div class="row">
+                  <p><center>Contact information: <a href="mailto:http://www.smartdatainc.com">
+                  www.smartdatainc.com</a>.</p> <p class="footertext">Copyright 2014</p></center></p>
+              </div>
+              	</div>
+                </center>
+              </div>
+              <div class="col-md-4">
+                <center>
+                  <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+                  <br>
+                  <h4 class="footertext">Designer</h4>
+                  <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
+                </center>
+              </div>
+            </div>
+
+    </div>
+</div>

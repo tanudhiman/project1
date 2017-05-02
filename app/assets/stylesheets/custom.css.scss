@@ -270,3 +270,24 @@ padding:1em;
 
   background-color:	#dff0d8;
 }
+
+#footer {
+  margin: -4px;
+
+  font-style: italic;
+
+  background-color:	#dff0d8;
+
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 290px;
+  background:
+  /* color overlay */
+    linear-gradient(
+      rgba(240, 212, 0, 0.45),
+      rgba(0, 0, 0, 0.45)
+    ),
+    /* image to overlay */
+    url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+}
