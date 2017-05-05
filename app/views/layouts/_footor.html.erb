@@ -1,4 +1,4 @@
-<div class="container">
+<!--<div class="container">
 	<div class="row-fluid">
         <div class="span8">
    <script style="width:100%; height:350; frameborder:0; scrolling:no; marginheight:0; marginwidth:0" src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
@@ -18,10 +18,10 @@
     </div>
 
   </div>
-  <div id="footer">
-     <div class="container">
+	</div>
+  <div id="footer" style =" width: 100%; margin: 0px 0px 0px 0px">
+
         <div class="row">
-            <h3 class="footertext">About Us:</h3>
             <br>
               <div class="col-md-4">
                 <center>
@@ -58,5 +58,102 @@
               </div>
             </div>
 
+
+<div id="footer" style =" width: 100%; margin: 0px 1px 0px 0px">
+
+
+
+  <div class="row"  >
+    <div class="col-md-8">
+      <h3>Google Map here</h3>
+
+			<script style="width:100%; height:70; frameborder:0; scrolling:no; marginheight:0; marginwidth:0" src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+			<div style='overflow:hidden;height:auto;width:700px;'>
+				<div id='gmap_canvas' style='height:180px;width:700px;'></div>
+
+				<style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div>
+				<script type='text/javascript'>
+				function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(30.708393000000004,76.74473692578117),mapTypeId: google.maps.MapTypeId.ROADMAP};
+				map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
+				marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(30.708393000000004,76.74473692578117)});
+				infowindow = new google.maps.InfoWindow({content:'<strong>smartData </strong><br>Phase 8, Industrial Area, Sector 73, Sahibzada Ajit Singh Nagar, Chandigarh 160071, India<br>'});
+				google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});
+				infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+
     </div>
+    <div class="col-md-4" >
+			<address><br><br><br>
+				<strong>SmartData Enterprise </strong><br>
+				Phase 8, Industrial Area	<br>
+				Sector 73, Sahibzada Ajit Singh Nagar<br>
+				Chandigarh 160071<br>
+				<abbr title="Phone">P:</abbr> 01234 567 890
+			</address>
+<img src="http://oi60.tinypic.com/w8lycl.jpg" class="img-circle" alt="the-brains"><img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+
+    </div>
+  </div>
+	<div><center><small>Contact information: <a href="mailto:http://www.smartdatainc.com">
+	www.smartdatainc.com</a>.</small></center></div>
+	<div><center>Copyright 2017</center></div>
+
+
 </div>
+-->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <h2 class="fh5co-footer-title">About</h2>
+        <p> <a href="www.smartdatainc.com" target="_blank">smartdata.nic</a> </p>
+      </div>
+      <div class="col-md-5">
+        <h2 class="fh5co-footer-title">Offices</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="h4">California</h3>
+            <address>2926 Bicetown Road <br>California, NY 10016</address>
+          </div>
+          <div class="col-md-6">
+            <h3 class="h4">India</h3>
+            <address>Mohali,Phase 7<br> Punjab ,134116</address>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <h2 class="fh5co-footer-title">Links</h2>
+        <ul class="fh5co-footer-links">
+          <li><a href="www.smartdatainc.com"></a></li>
+          <li><a href="https://www.smashingmagazine.com/">Smashingmagazine</a></li>
+          <li><a href="https://www.smashingmagazine.com/">A List Apart</a></li>
+          <li><a href="https://creativemarket.com/">Creative Market</a></li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <h2 class="fh5co-footer-title">Connect</h2>
+        <ul class="fh5co-footer-links">
+          <li><a href="https://twitter.com/" class="fh5co-link"><i class="fa fa-twitter"></i>Twitter</a></li>
+          <li><a href="https://facebook.com/" class="fh5co-link"><i class="fa fa-facebook-square"></i>Facebook</a></li>
+          <li><a href="https://github.com/" class="fh5co-link"><i class="fa fa-github"></i>Github</a></li>
+          <li><a href="https://linkedin.com/" class="fh5co-link"><i class="fa fa-linkedin-square"></i>LinkedIn</a></li>
+          <li><a href="https://plus.google.com/" class="fh5co-link"><i class="fa fa-google"></i>Google Plus</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="fh5co-copyright">
+          <p class="pull-left">&copy;	smartData Enterprises 2017. All Rights Reserved. <br> contact <a href="mailto:http://www.smartdatainc.com "target="_blank">smartData.com</a>
+          <ul class="pull-right fh5co-footer-social">
+            <li><a href="https://facebook.com/"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://instagram.com/"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://linkedin.com/"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</footer>

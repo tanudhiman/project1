@@ -7,12 +7,14 @@
   <%=flash[:error]%>
   </div>
 <%end%>
-<%=render 'layouts/head'%>
+
 <%if current_user.role == "Project Manager"%>
+<div class="box" style="height:500px;">
+  <%=render 'layouts/head'%>
 
 <%= render 'layouts/nav' %>
 
-<form method='post' action ='<% assigns_path%>' style="width:1300px;height:400px;background-color:#dff0d8 " id="target" >
+<form method='post' action ='<% assigns_path%>'  id="target" >
 
    <center>
 
@@ -43,10 +45,28 @@
       </center>
 
 </form>
-<%else%>
-<%if @assign1.present? %>
+<ul class="bg-bubbles">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li ></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
 
-      <%= button_to root_path, method: :get do %>
+</ul>
+</div>
+
+<%=render 'layouts/footor'%>
+<%else%>
+<div class="box" style="height:auto;">
+  <%=render 'layouts/head'%>
+<%if @assign1.present? %>
+<div>
+      <%= button_to index1_path, method: :get do %>
       <i class="glyphicon glyphicon-arrow-left"></i>
       <% end %>
 
@@ -56,8 +76,9 @@
   <% end %>
 
 </div>
-<center>
+
   <center><h2>These are assigned projects</h2> <br> </center>
+  <center>
 <fieldset>
         <form method='post' , action= "/status">
 
@@ -81,7 +102,7 @@
                <strong>Domain :</strong>
             </div>
               <div class="col-sm-3">
-         <input type="text" value = "<%= Project.find(t.project_id).domain %>" readonly class="form-control" />
+         <input type="text" value = "<%= Project.find(t.project_id).domain %>" readonly class="form-control"/>
        </div><br>
             <div class= "img">
                <img id="myImg" src= "<%=Project.find( t.project_id).avatar.url(:thumb)%>" alt="Trolltunga, Norway" width="300" height="200">
@@ -112,15 +133,15 @@
 </div>
 <br>
 </div>
-
-
+</div>
+</div>
      <%end%>
 
    </fieldset>
-
    <div>
    <%= paginate @assign1 %></div>
-</center>
+ </center>
+
 <%else%>
 <center>
 <MARQUEE >
@@ -132,8 +153,25 @@
   <img src="project-management.jpg"  style="width:1000px;height:500px;">  </center>
  </div>
 <%end%>
+<ul class="bg-bubbles">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li ></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+
+</ul>
+</div>
+<%=render 'layouts/footor'%>
+
 <%end%>
-<%= render 'layouts/footor'%>
+
+
 
 <script type='text/javascript'>
   $( "#target" ).submit(function( event ) {

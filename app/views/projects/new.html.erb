@@ -2,34 +2,144 @@
 <%if current_user.role == "Project Manager"%>
 
 <%=render 'errors' ,project: @project%>
-<div> <center>  <%=render 'layouts/head'%></center></div>
+<div class="box">
+ <center>  <%=render 'layouts/head'%></center>
 <%= render 'layouts/nav' %>
+
 <center>
   <h3 style="font-style:italic"> Create a new Project </h3>
-<%= form_for @project ,:html=> {} do |t|%>
-<div>
- <%= t.label :Name %>
- <%= t.text_field :name %>
-</div>
-<div id = 'tinymcediv'>
- <%= t.label :Requirements %>
- <%= t.text_area :requirements ,:class => "tinymce" ,:rows => 20 ,:cols => 10%>
-</div>
-<div>
- <%= t.label :Domain %>
- <%= t.text_field :domain %>
-</div>
-<div>
- <%= t.label :avatar %>
- <%= t.file_field :avatar %>
-</div>
-<%= t.hidden_field :user_id, :value => current_user.id%>
-<div>
-  <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" },:class => "btn btn-primary"%>
-</div>
-<%end%>
 </center>
-<%else%>
-no access
+     <%= form_for @project ,:html=> { role: 'form', id: 'msform' } do |t| %>
+
+    <fieldset>
+      <h2 class="fs-title">Add Details</h2>
+      <h3 class="fs-subtitle">This is step 1</h3>
+      <%= t.text_field :name,  placeholder: "Project Name" %>
+      <%= t.text_field :domain,  placeholder: "Domain Name" %>
+
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset style="margin-left:0px ">
+      <h2 class="fs-title">Requirements</h2>
+      <h3 class="fs-subtitle">Add Requirements</h3>
+      <div id = 'tinymcediv'   style="width:500px;height:auto;">
+       <%= t.label :Requirements %>
+       <%= t.text_area :requirements ,:class => "tinymce"%>
+       </div>
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+      <input type="button" name="next" class="next action-button" value="Next" />
+    </fieldset>
+    <fieldset>
+      <h2 class="fs-title">Add Image</h2>
+      <h3 class="fs-subtitle">Upload</h3>
+      <div>
+
+       <%= t.file_field :avatar %>
+       </div>
+       <%= t.hidden_field :user_id, :value => current_user.id%>
+
+      <input type="button" name="previous" class="previous action-button" value="Previous" />
+
+      <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" },:class => "btn btn-primary"%>
+    </fieldset>
+  <%end%>
+  <ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+    <li></li>
+		<li></li>
+    <li ></li>
+		<li></li>
+		<li></li>
+    <li></li>
+		<li></li>
+
+	</ul>
+</div>
 <%end%>
-<%=render 'layouts/footor'%>
+
+
+<script>
+var current_fs, next_fs, previous_fs; //fieldsets
+var left, opacity, scale; //fieldset properties which we will animate
+var animating; //flag to prevent quick multi-click glitches
+
+$(".next").click(function(){
+if(animating) return false;
+animating = true;
+
+current_fs = $(this).parent();
+next_fs = $(this).parent().next();
+
+//activate next step on progressbar using the index of next_fs
+$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+
+//show the next fieldset
+next_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+  step: function(now, mx) {
+    //as the opacity of current_fs reduces to 0 - stored in "now"
+    //1. scale current_fs down to 80%
+    scale = 1 - (1 - now) * 0.2;
+    //2. bring next_fs from the right(50%)
+    left = (now * 50)+"%";
+    //3. increase opacity of next_fs to 1 as it moves in
+    opacity = 1 - now;
+    current_fs.css({
+      'transform': 'scale('+scale+')',
+      'position': 'relative'
+    });
+    next_fs.css({'left': left, 'opacity': opacity});
+  },
+  duration: 800,
+  complete: function(){
+    current_fs.hide();
+    animating = false;
+  },
+  //this comes from the custom easing plugin
+  easing: 'easeInOutBack'
+});
+});
+
+$(".previous").click(function(){
+if(animating) return false;
+animating = true;
+
+current_fs = $(this).parent();
+previous_fs = $(this).parent().prev();
+
+//de-activate current step on progressbar
+$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+
+//show the previous fieldset
+previous_fs.show();
+//hide the current fieldset with style
+current_fs.animate({opacity: 0}, {
+  step: function(now, mx) {
+    //as the opacity of current_fs reduces to 0 - stored in "now"
+    //1. scale previous_fs from 80% to 100%
+    scale = 0.8 + (1 - now) * 0.2;
+    //2. take current_fs to the right(50%) - from 0%
+    left = ((1-now) * 50)+"%";
+    //3. increase opacity of previous_fs to 1 as it moves in
+    opacity = 1 - now;
+    current_fs.css({'left': left});
+    previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
+  },
+  duration: 800,
+  complete: function(){
+    current_fs.hide();
+    animating = false;
+  },
+  //this comes from the custom easing plugin
+  easing: 'easeInOutBack'
+});
+});
+
+$(".submit").click(function(){
+return false;
+})
+
+</script>
