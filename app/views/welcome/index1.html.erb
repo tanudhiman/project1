@@ -16,15 +16,11 @@
 <%=current_user.name%>
 </h2> <br> </center>
 <%else%>
+<%= render 'layouts/nav1' %>
+
 <center><h2 class = "nam">Welcome
 <%=current_user.name%>
 </h2> <br> </center>
-<div style='float:left; margin-left:450px'>
-<%=link_to 'Assigned Projects', assigns_path, method: :get%>
-</div>
-<div style='float:left; margin-left:150px'>
-<%=link_to 'logout', destroy_user_session_path, method: :delete%>
-</div>
 <%end%>
 <div><center>
   <img src="project-management.jpg"  style="width:1000px;height:500px;">  </center>

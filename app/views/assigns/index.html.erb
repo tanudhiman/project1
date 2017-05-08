@@ -64,18 +64,8 @@
 <%else%>
 <div class="box" style="height:auto;">
   <%=render 'layouts/head'%>
+  <%=render 'layouts/nav1'%>
 <%if @assign1.present? %>
-<div>
-      <%= button_to index1_path, method: :get do %>
-      <i class="glyphicon glyphicon-arrow-left"></i>
-      <% end %>
-
-
-  <%= button_to destroy_user_session_path, method: :delete  do %>
-  <i class="glyphicon glyphicon-off" style="float: left"></i>
-  <% end %>
-
-</div>
 
   <center><h2>These are assigned projects</h2> <br> </center>
   <center>
