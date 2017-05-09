@@ -13,4 +13,6 @@ config.password_length = 6..128
 config.email_regexp = /\A[^@\s]+@[^@\s]+\z/
 config.reset_password_within = 6.hours
 config.sign_out_via = :delete
+config.secret_key = 'e6c4033913b9a3ad115a32994656d44b6e918c2f8ee831d28757f4437ce2a54695abbd04b0c0bba29a9e4256731c98205d955678410d5b89a7b94872b38cb5ee'
+
 end
