@@ -1,4 +1,5 @@
 <%= tinymce %>
+<div class="box">
 <%=render 'errors' ,project: @project %>
 <%=render 'layouts/head'%>
 
@@ -20,7 +21,7 @@
 <%= f.hidden_field :user_id, :value => current_user.id %>
 </div>
 <div>
-<%= f.text_area :requirements, :class => "tinymce"%>
+<%= f.text_area :requirements, :class => "tinymce" %>
 </div>
 <div>
 <%= f.label :Domain%>
@@ -37,7 +38,31 @@
 
 <div>
 
-<%= f.submit 'Update' %>
+<%= f.submit 'Update' ,:class => "btn btn-primary btn-lg btn-block" ,:style => "width:10%;margin-top:30px"%>
+</div>
+<ul class="bg-bubbles">
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li ></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li ></li>
+  <li></li>
+  <li></li>
+  <li></li>
+  <li></li>
+
+</ul>
 </div>
 <%end%>
 </center>

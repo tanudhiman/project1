@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     @user = User.find(current_user.id)
     authorize! :manage, @user
     @project = Project.where(user_id: current_user.id).page(params[:page]).per(1)
+
   end
 
    def update

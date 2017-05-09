@@ -1,7 +1,8 @@
 <%= tinymce %>
 <div class="box" >
    <center>
-      <h2 class="head"> smartData Enterprises</h2>
+     <%=render 'layouts/head'%>
+
    </center>
    <%= render 'layouts/nav' %>
    <%if @project.empty?%>
@@ -35,7 +36,7 @@
             <%= label_tag @final_status, 'Incompleted' %>
             <%=radio_button_tag :final_status, "Pending" %><br>
             <%= hidden_field_tag :project_id, project.id %>
-            <%= submit_tag  "submit" ,data: { disable_with: "Please wait..."},:class => "btn btn-primary" %>
+            <%= submit_tag  "submit" ,data: { disable_with: "Please wait..."},:class => "btn btn-primary btn-lg btn-block" ,:style =>"width:20%;margin-top:30px"%>
             <%end%>
          </div>
 
@@ -55,6 +56,16 @@
      <li></li>
      <li></li>
      <li ></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
+     <li></li>
      <li></li>
      <li></li>
      <li></li>
