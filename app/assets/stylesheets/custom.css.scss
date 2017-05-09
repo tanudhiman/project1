@@ -267,6 +267,32 @@ display: block;
   background-color:	#dff0d8;
 }
 
+#footer {
+  // margin: -4px;
+  //
+  // font-style: italic;
+  //  position: fixed;
+  // background-color:	#dff0d8;
+  //
+  // bottom: 0px;
+  // width: 100%;
+  // /* Set the fixed height of the footer here */
+  // height: 290px;
+  // background:
+  // /* color overlay */
+  //   linear-gradient(
+  //     rgba(240, 212, 0, 0.45),
+  //     rgba(0, 0, 0, 0.45)
+  //   ),
+  //   /* image to overlay */
+  //   url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+    margin:             -343px auto 0;
+    min-width:          1000px;
+    height:             343px;
+    background:         url( "images/landing_page_footer.png" )no-repeat;
+    background-size:    100%;
+    background-color:   black;
+}
 #msform {
 	width: 400px;
 	margin: 50px auto;

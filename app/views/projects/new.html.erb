@@ -11,9 +11,7 @@
 </center>
      <%= form_for @project ,:html=> { role: 'form', id: 'msform' } do |t| %>
 
-    <fieldset style="
-
-    background: -o-linear-gradient(top , #50a3a2 0%, #53e3a6 100%);
+    <fieldset style="background: -o-linear-gradient(top , #50a3a2 0%, #53e3a6 100%);
     background: linear-gradient(to bottom , #50a3a2 0%, #53e3a6 100%);">
       <h2 class="fs-title">Add Details</h2>
 
@@ -28,7 +26,7 @@
 
       <div id = 'tinymcediv'   style="width:500px;height:auto;">
 
-       <%= t.text_area :requirements ,:class => "tinymce",:required=>true%>
+       <%= t.text_area :requirements ,:class => "tinymce"%>
        </div>
       <input type="button" name="previous" class="previous action-button" value="Previous" />
       <input type="button" name="next" class="next action-button" value="Next" />
@@ -155,7 +153,7 @@ return false;
 <script>
 $(function() {
 
-  $("form[name='msform']").validate({
+  $("form[name='form']").validate({
 
     rules: {
 
@@ -166,14 +164,13 @@ $(function() {
     },
 
     messages: {
-      name: "Please enter your firstname",
-    domain: "Please enter your lastname",
+      name: "Please enter name",
+    domain: "Please enter domain",
 
       requirements: "Please enter a valid email address"
     },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
-    submitHandler: function(form) {
+
+    submitHandler: function(msform) {
       form.submit();
     }
   });

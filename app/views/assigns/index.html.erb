@@ -1,15 +1,7 @@
-<%if flash[:success]%>
-  <div class='alert alert-success'>
-  <%=flash[:success]%>
-</div>
-<%elsif flash[:error]%>
-  <div class='alert alert-danger'>
-  <%=flash[:error]%>
-  </div>
-<%end%>
 
 <%if current_user.role == "Project Manager"%>
-<div class="box" style="height:500px;">
+<div class="box" style="height:auto;">
+    <%=render 'layouts/messages'%>
   <%=render 'layouts/head'%>
 
 <%= render 'layouts/nav' %>
@@ -73,6 +65,7 @@
 <%=render 'layouts/footor'%>
 <%else%>
 <div class="box" style="height:auto;">
+    <%=render 'layouts/messages'%>
   <%=render 'layouts/head'%>
   <%=render 'layouts/nav1'%>
 <%if @assign1.present? %>
