@@ -9,11 +9,11 @@
  <center>  <h2 class="head"> smartData Enterprises</h2></center>
     <center>  <h4 class="head2">ONLINE PROJECT MANAGEMENT SYSTEM</h4></center></div>
 
- <div>
+ <div style="background:!important;">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f| %>
 
-      <div >
-        <%= f.label :email %>
+      <div style="color:black;">
+        <%= f.label :email  %>
         <%= f.email_field :email, autofocus: true,autocomplete:"off", class: 'form-control' %>
       </div>
       <div class="form-group">
