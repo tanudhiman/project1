@@ -370,9 +370,11 @@ display: block;
 
 	left: 0;
 	width: 100%;
-	height: auto;
+	min-height: 100;
 	margin-top: 0px;
+  // overflow-x:hidden;
 	overflow: hidden;
+  // overflow:scroll
 
 }
 .bg-bubbles{
