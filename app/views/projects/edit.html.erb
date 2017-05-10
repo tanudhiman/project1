@@ -10,16 +10,16 @@
 <h1>Edit Project Details</h1>
 <p></p><p></p>
 <%= form_for @project, :url=>{:action=>'update'} do |f| %>
-<div style="color:black;">
+<div style="color:black;" >
   <%= f.label :Name%>
 </div>
-<div style="color:black;">
+<div style="color:black;width:20%">
   <%= f.text_field :name %>
 </div>
 <div style="color:black;">
 <%= f.label :Requirements%>
-<%= f.hidden_field :user_id, :value => current_user.id %>
 </div>
+
 <div style="color:black;">
 <%= f.text_area :requirements, :class => "tinymce" %>
 </div>
@@ -29,11 +29,12 @@
 <div>
 <%= f.text_field :domain%>
 </div>
-<div style="color:black;">
+<div >
  <%= f.label :avatar %>
  <%= f.file_field :avatar %>
 </div>
 
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 
 <div>
