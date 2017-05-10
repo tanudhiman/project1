@@ -13,11 +13,11 @@
      <%= form_for @project ,:html=> { role: 'form', id: 'msform' } do |t| %>
 
     <fieldset style="background: -o-linear-gradient(top , #50a3a2 0%, #53e3a6 100%);
-    background: linear-gradient(to bottom , #50a3a2 0%, #53e3a6 100%);">
+    background: linear-gradient(to bottom , #50a3a2 0%, #53e3a6 100%);color:black;">
       <h2 class="fs-title">Add Details</h2>
 
-      <%= t.text_field :name,  placeholder: "Project Name" ,:required=>true ,:style=> "color:black;"%>
-      <%= t.text_field :domain,  placeholder: "Domain Name" ,:required=>true ,:style=> "color:black;"%>
+      <%= t.text_field :name,  placeholder: "Project Name" ,:required=>true %>
+      <%= t.text_field :domain,  placeholder: "Domain Name" ,:required=>true %>
 
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
