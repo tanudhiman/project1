@@ -9,14 +9,15 @@
 <center>
   <h3 style="font-style:italic"> Create a new Project </h3>
 </center>
+
      <%= form_for @project ,:html=> { role: 'form', id: 'msform' } do |t| %>
 
     <fieldset style="background: -o-linear-gradient(top , #50a3a2 0%, #53e3a6 100%);
     background: linear-gradient(to bottom , #50a3a2 0%, #53e3a6 100%);">
       <h2 class="fs-title">Add Details</h2>
 
-      <%= t.text_field :name,  placeholder: "Project Name" ,:required=>true%>
-      <%= t.text_field :domain,  placeholder: "Domain Name" ,:required=>true%>
+      <%= t.text_field :name,  placeholder: "Project Name" ,:required=>true ,:style=> "color:black;"%>
+      <%= t.text_field :domain,  placeholder: "Domain Name" ,:required=>true ,:style=> "color:black;"%>
 
       <input type="button" name="next" class="next action-button" value="Next" />
     </fieldset>
@@ -45,7 +46,9 @@
 
       <%=t.submit "submit" ,data: { confirm: "Are you sure you want to submit this form?" },:class => "btn btn-primary"%>
     </fieldset>
+
   <%end%>
+
   <ul class="bg-bubbles">
 		<li></li>
 		<li></li>
