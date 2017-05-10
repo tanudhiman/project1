@@ -60,10 +60,10 @@
          </div>
 
    </fieldset>
-   <%= button_to  edit_project_path(project), method: :get do %>
+   <%= button_to  edit_project_path(project),:style => "width:40px;", method: :get do %>
    <i class="glyphicon glyphicon-pencil" style="width:40px;"></i>
    <% end %>
-   <%= button_to project, method: :delete  ,  data: { confirm: "Are you sure?" } do %>
+   <%= button_to project,:style=>"width:40px", method: :delete  ,  data: { confirm: "Are you sure?" } do %>
    <i class="glyphicon glyphicon-trash" style="width:40px"></i>
    <% end %>
    <%end%>
