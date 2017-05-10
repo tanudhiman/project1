@@ -25,9 +25,9 @@ true, loop: true, class: "video-container", type:"video/mp4" %>
         <%= f.label :password_confirmation ,style: 'color:#000000;'%>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
       </div>
-<div>
-    <%= f.label :role,style: 'color:#000000;'%>
-    <%= f.select(:role, options_for_select(role),style: 'color:#000000;') %>
+<div style= 'color:#000000;'>
+    <%= f.label :role%>
+    <%= f.select(:role, options_for_select(role)) %>
 
 </div>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
