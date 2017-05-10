@@ -27,7 +27,7 @@ true, loop: true, class: "video-container", type:"video/mp4" %>
       </div>
 <div>
     <%= f.label :role,style: 'color:#000000;'%>
-    <%= f.select(:role, options_for_select(role)) %>
+    <%= f.select(:role, options_for_select(role),style: 'color:#000000;') %>
 
 </div>
       <%= f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary' %>
