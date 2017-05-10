@@ -17,7 +17,6 @@
       <h2 class="fs-title">Add Details</h2>
 
       <%= t.text_field :name,  placeholder: "Project Name" ,:required=>true %>
-      <%= t.text_field :answer, :value => "", :placeholder => "Respond..." %>
       <%= t.text_field :domain,  placeholder: "Domain Name" ,:required=>true %>
 
       <input type="button" name="next" class="next action-button" value="Next" />
@@ -171,7 +170,7 @@ $(function() {
       name: "Please enter name",
     domain: "Please enter domain",
 
-      requirements: "Please enter a valid email address"
+      
     },
 
     submitHandler: function(msform) {
