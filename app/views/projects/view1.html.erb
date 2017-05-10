@@ -26,12 +26,12 @@
          <%Assign.connection.clear_query_cache%><%=label_tag t.status%><br>
          <%end%>
 
-         <div style="color:black;">
+         <div>
             <%=label_tag "Final Status:" %>
              <% if project.final_status== "Done"%>
              <%=project.final_status %>
              <%else%>
-            <form method='post' , action= "/final_status" >
+            <form method='post' , action= "/final_status", style="color:black;">
             <%= label_tag @final_status, 'Completed' %>
             <%= radio_button_tag :final_status,"Done"  %>
             <%= label_tag @final_status, 'Incompleted' %>
