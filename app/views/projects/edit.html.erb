@@ -10,26 +10,26 @@
 <h1>Edit Project Details</h1>
 <p></p><p></p>
 <%= form_for @project, :url=>{:action=>'update'} do |f| %>
-<div>
+<div style="color:black;">
   <%= f.label :Name%>
 </div>
-<div>
+<div style="color:black;">
   <%= f.text_field :name %>
 </div>
-<div>
+<div style="color:black;">
 <%= f.label :Requirements%>
 <%= f.hidden_field :user_id, :value => current_user.id %>
 </div>
-<div>
+<div style="color:black;">
 <%= f.text_area :requirements, :class => "tinymce" %>
 </div>
-<div>
+<div style="color:black;">
 <%= f.label :Domain%>
 </div>
 <div>
 <%= f.text_field :domain%>
 </div>
-<div>
+<div style="color:black;">
  <%= f.label :avatar %>
  <%= f.file_field :avatar %>
 </div>
@@ -38,7 +38,7 @@
 
 <div>
 
-<%= f.submit 'Update' ,:class => "btn btn-primary btn-lg btn-block" ,:style => "width:10%;margin-top:30px"%>
+<%= f.submit 'Update' ,:class => "btn btn-primary btn-lg btn-block" ,:style =>"width:10%;margin-top:30px;height:40px"%>
 </div>
 <ul class="bg-bubbles">
   <li></li>
