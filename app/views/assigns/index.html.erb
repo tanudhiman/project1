@@ -6,7 +6,7 @@
 
 <%= render 'layouts/nav' %>
 
-<form method='post' action ='<% assigns_path%>'  id="target" >
+<form method='post' action ='<% assigns_path%>'  id="target" style="color:black;">
 
    <center>
 
@@ -65,7 +65,7 @@
 <%=render 'layouts/footor'%>
 <%else%>
 <div class="box" style="height:auto;">
-    <%=render 'layouts/messages'%>
+
   <%=render 'layouts/head'%>
   <%=render 'layouts/nav1'%>
 <%if @assign1.present? %>
