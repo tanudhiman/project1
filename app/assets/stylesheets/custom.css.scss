@@ -301,16 +301,30 @@ display: block;
 	display: none;
 }
 /*inputs*/
-#msform input, #msform textarea {
-	padding: 15px;
+#msform input{
+
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
 	width: 100%;
+  height: 40px;
 	box-sizing: border-box;
 	font-family: montserrat;
 	color: #2C3E50;
 	font-size: 13px;
+}
+#msform textarea {
+  padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+  height: auto;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+
 }
 /*buttons*/
 #msform .action-button {
@@ -566,7 +580,7 @@ form {
 }
 #project_name{
   color: black;
-  
+
 }
 #project_domain{
   color: black;
