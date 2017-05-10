@@ -23,15 +23,15 @@
 <div style="color:black;">
 <%= f.text_area :requirements, :class => "tinymce" %>
 </div>
-<div style="color:black;">
+<div style="color:black;width:20%">
 <%= f.label :Domain%>
 </div>
 <div>
 <%= f.text_field :domain%>
 </div>
-<div >
+<div style="color:black;">
  <%= f.label :avatar %>
- <%= f.file_field :avatar %>
+ <%= f.file_field :avatar ,:style=> "width:250px;" %>
 </div>
 
 <%= f.hidden_field :user_id, :value => current_user.id %>
