@@ -3,6 +3,9 @@ class WelcomeController < ApplicationController
   before_action :authenticate_user!, except: [:index, :about, :element, :contact, :portfolio, :services]
 
   def index
+    if user_signed_in?
+      redirect_to index1_path
+    end
   end
 
   def about
