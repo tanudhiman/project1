@@ -1,14 +1,6 @@
 <div class ="box"> <center>  <%=render 'layouts/head'%></center>
 <%if user_signed_in?%>
-<%if flash[:success]%>
-<div class='alert alert-success'>
-<%=flash[:success]%>
-</div>
-<%elsif flash[:error]%>
-<div class='alert alert-danger'>
-<%=flash[:error]%>
-</div>
-<%end%>
+
 
 <%if @role =='Project Manager'%>
 <%= render 'layouts/nav' %>
