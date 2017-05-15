@@ -13,7 +13,7 @@ Rails.application.configure do
   config.i18n.fallbacks = true
   config.active_support.deprecation = :notify
   config.log_formatter = ::Logger::Formatter.new
-  config.action_mailer.default_url_options = { host: 'fierce-shelf-88454.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'tanu-project.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.gmail.com",
