@@ -19,7 +19,7 @@ gem 'omniauth-github'
 gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'puma', '~> 3.0'
 gem 'pundit'
-gem 'pg'
+# gem 'pg'
 gem 'rails', '~> 5.0.2'
 gem 'rails_admin', '~> 1.1.1'
 gem 'rubocop', '~> 0.48.1', require: false

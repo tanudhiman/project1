@@ -78,10 +78,12 @@ class ProjectsController < ApplicationController
 
     def create_params
       params.require(:project).permit(:name, :requirements, :domain, :user_id,
-       :avatar, :document)
+      #  :avatar, :document
+       )
     end
     def update_params
       params.require(:project).permit(:name, :requirements, :domain,
-       :avatar, :document)
+      #  :avatar, :document
+       )
     end
 end
