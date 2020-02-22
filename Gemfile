@@ -16,7 +16,7 @@ gem 'kaminari'
 gem 'letter_opener'
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+# gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'puma', '~> 3.0'
 gem 'pundit'
 # gem 'pg'
@@ -33,6 +33,10 @@ gem 'twitter-bootstrap-rails'
 gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platform: :mri
+end
+
+group :production do
+  gem 'pg'
 end
 group :development do
   gem 'listen', '~> 3.0.5'
