@@ -16,7 +16,7 @@ gem 'kaminari'
 gem 'letter_opener'
 gem 'omniauth'
 gem 'omniauth-github'
-# gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
+gem 'paperclip', git: 'git://github.com/thoughtbot/paperclip.git'
 gem 'puma', '~> 3.0'
 gem 'pundit'
 # gem 'pg'
@@ -37,7 +37,7 @@ end
 group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
-  gem 'sqlite3'
+  gem 'sqlite3','~> 1.3.6'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
